@@ -1,7 +1,9 @@
 package com.nestorBenitez.ecommerce.mapper;
 
+import com.nestorBenitez.ecommerce.DTO.PageDTO;
 import com.nestorBenitez.ecommerce.DTO.ProductDTO;
 import com.nestorBenitez.ecommerce.entity.Product;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,4 +32,24 @@ public class ProductMapper {
     return productDTO;
   }
 
+  public PageDTO<Product> convertToPageDTO(Page<Product> page) {
+    PageDTO<Product> dto = new PageDTO<>();
+    dto.setContent(page.getContent());
+    dto.setPageNumber(page.getNumber());
+    dto.setPageSize(page.getSize());
+    dto.setTotalPages(page.getTotalPages());
+    dto.setTotalElements(page.getTotalElements());
+    dto.setIslast(page.isLast());
+    return dto;
+  }
+  public PageDTO<ProductDTO> convertToPageDTO(Page<Product> pageProduct,Page<ProductDTO> page) {
+    PageDTO<ProductDTO> dto = new PageDTO<>();
+    dto.setContent(page.getContent());
+    dto.setPageNumber(pageProduct.getNumber());
+    dto.setPageSize(pageProduct.getSize());
+    dto.setTotalPages(pageProduct.getTotalPages());
+    dto.setTotalElements(pageProduct.getTotalElements());
+    dto.setIslast(pageProduct.isLast());
+    return dto;
+  }
 }
