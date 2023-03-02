@@ -37,12 +37,16 @@ public class ProductServiceImpl implements ProductService {
   public PageDTO<ProductDTO> getAllProductsPageable(Pageable pageable) {
     Page<Product> products = productRepository.findAll(pageable);
     System.out.println("Este es el numero de paginas totales DTO: " + products.getTotalPages());
-    System.out.println("Este es el numero de elementos totales DTO: " + products.getTotalElements());
-    Page<ProductDTO> pageProductsDTO = new PageImpl<>(products.stream().map(product -> productMapper.convertToProductDTO(product)).collect(
-        Collectors.toList()));
-    System.out.println("Este es el numero de paginas totales DTO: " + pageProductsDTO.getTotalPages());
-    System.out.println("Este es el numero de elementos totales DTO: " + pageProductsDTO.getTotalElements());
-    return productMapper.convertToPageDTO(products,pageProductsDTO);
+    System.out.println(
+        "Este es el numero de elementos totales DTO: " + products.getTotalElements());
+    Page<ProductDTO> pageProductsDTO = new PageImpl<>(
+        products.stream().map(product -> productMapper.convertToProductDTO(product)).collect(
+            Collectors.toList()));
+    System.out.println(
+        "Este es el numero de paginas totales DTO: " + pageProductsDTO.getTotalPages());
+    System.out.println(
+        "Este es el numero de elementos totales DTO: " + pageProductsDTO.getTotalElements());
+    return productMapper.convertToPageDTO(products, pageProductsDTO);
   }
 
   @Override

@@ -38,20 +38,24 @@ public class ProductController {
     ProductDTO productDTO = productService.getById(id);
     return ResponseEntity.status(HttpStatus.OK).body(productDTO);
   }
+
   @GetMapping("/pageable")
   public ResponseEntity<Page<Product>> getById(
-      @RequestParam(value = "page",defaultValue = "0") int page,
-      @RequestParam(value = "size",defaultValue = "10") int size) {
-    Pageable pageable = PageRequest.of(page,size);
+      @RequestParam(value = "page", defaultValue = "0") int page,
+      @RequestParam(value = "size", defaultValue = "10") int size) {
+    Pageable pageable = PageRequest.of(page, size);
     return ResponseEntity.status(HttpStatus.OK).body(productService.getProductsPageable(pageable));
   }
+
   @GetMapping("/pageable2")
   public ResponseEntity<PageDTO<ProductDTO>> getByAll(
-      @RequestParam(value = "page",defaultValue = "0") int page,
-      @RequestParam(value = "size",defaultValue = "10") int size) {
-    Pageable pageable = PageRequest.of(page,size);
-    return ResponseEntity.status(HttpStatus.OK).body(productService.getAllProductsPageable(pageable));
+      @RequestParam(value = "page", defaultValue = "0") int page,
+      @RequestParam(value = "size", defaultValue = "10") int size) {
+    Pageable pageable = PageRequest.of(page, size);
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(productService.getAllProductsPageable(pageable));
   }
+
   @GetMapping("/price")
   public ResponseEntity<PageDTO<Product>> getFilteredProducts(
       @RequestParam(required = false) Double minPrice,
@@ -72,6 +76,7 @@ public class ProductController {
         pageable);
     return ResponseEntity.status(HttpStatus.OK).body(filteredPage);
   }
+
   @PostMapping
   public ResponseEntity<Product> saveProduct(@RequestBody ProductDTO productDTO) {
     Product product = productService.saveProduct(productDTO);

@@ -9,6 +9,7 @@ import lombok.Setter;
 @Getter
 @NoArgsConstructor
 public class PageDTO<T> {
+
   private List<T> content;
   private boolean islast;
   private int pageNumber;

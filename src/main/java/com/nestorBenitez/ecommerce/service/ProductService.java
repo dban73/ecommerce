@@ -11,10 +11,14 @@ import org.springframework.data.domain.Pageable;
 public interface ProductService {
 
   List<ProductDTO> getAllProducts();
+
   PageDTO<ProductDTO> getAllProductsPageable(Pageable pageable);
+
   Page<Product> getProductsPageable(Pageable pageable);
+
   ProductDTO getById(UUID id);
 
   Product saveProduct(ProductDTO productDTO);
-  PageDTO<Product> getFilteredProducts(Double minPrice,Double maxprice,Pageable pageable);
+
+  PageDTO<Product> getFilteredProducts(Double minPrice, Double maxprice, Pageable pageable);
 }

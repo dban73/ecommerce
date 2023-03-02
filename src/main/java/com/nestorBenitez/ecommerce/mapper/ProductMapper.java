@@ -42,7 +42,8 @@ public class ProductMapper {
     dto.setIslast(page.isLast());
     return dto;
   }
-  public PageDTO<ProductDTO> convertToPageDTO(Page<Product> pageProduct,Page<ProductDTO> page) {
+
+  public PageDTO<ProductDTO> convertToPageDTO(Page<Product> pageProduct, Page<ProductDTO> page) {
     PageDTO<ProductDTO> dto = new PageDTO<>();
     dto.setContent(page.getContent());
     dto.setPageNumber(pageProduct.getNumber());
