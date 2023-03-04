@@ -1,6 +1,6 @@
 package com.nestorBenitez.ecommerce.service.impl;
 
-import com.nestorBenitez.ecommerce.DTO.UserDTO;
+import com.nestorBenitez.ecommerce.dto.UserDTO;
 import com.nestorBenitez.ecommerce.entity.User;
 import com.nestorBenitez.ecommerce.exceptions.EntityNotFoundException;
 import com.nestorBenitez.ecommerce.mapper.UserMapper;

@@ -1,6 +1,6 @@
 package com.nestorBenitez.ecommerce.controller;
 
-import com.nestorBenitez.ecommerce.DTO.UserDTO;
+import com.nestorBenitez.ecommerce.dto.UserDTO;
 import com.nestorBenitez.ecommerce.service.UserService;
 import java.util.List;
 import java.util.UUID;

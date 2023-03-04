@@ -1,6 +1,6 @@
 package com.nestorBenitez.ecommerce.mapper;
 
-import com.nestorBenitez.ecommerce.DTO.UserDTO;
+import com.nestorBenitez.ecommerce.dto.UserDTO;
 import com.nestorBenitez.ecommerce.entity.User;
 import org.springframework.stereotype.Component;
 

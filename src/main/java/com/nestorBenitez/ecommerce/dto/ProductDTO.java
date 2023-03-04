@@ -1,4 +1,4 @@
-package com.nestorBenitez.ecommerce.DTO;
+package com.nestorBenitez.ecommerce.dto;
 
 import java.util.UUID;
 import lombok.Getter;

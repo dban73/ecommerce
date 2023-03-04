@@ -1,7 +1,7 @@
 package com.nestorBenitez.ecommerce.service.impl;
 
-import com.nestorBenitez.ecommerce.DTO.PageDTO;
-import com.nestorBenitez.ecommerce.DTO.ProductDTO;
+import com.nestorBenitez.ecommerce.dto.PageDTO;
+import com.nestorBenitez.ecommerce.dto.ProductDTO;
 import com.nestorBenitez.ecommerce.entity.Category;
 import com.nestorBenitez.ecommerce.entity.Product;
 import com.nestorBenitez.ecommerce.exceptions.EntityNotFoundException;
@@ -59,6 +59,12 @@ public class ProductServiceImpl implements ProductService {
     Product product = productRepository.findById(id)
         .orElseThrow(() -> new EntityNotFoundException("Product", id));
     return productMapper.convertToProductDTO(product);
+  }
+
+  @Override
+  public Product getProductById(UUID id) {
+    return productRepository.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Product", id));
   }
 
   @Override

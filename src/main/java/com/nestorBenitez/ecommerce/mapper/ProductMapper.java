@@ -1,7 +1,7 @@
 package com.nestorBenitez.ecommerce.mapper;
 
-import com.nestorBenitez.ecommerce.DTO.PageDTO;
-import com.nestorBenitez.ecommerce.DTO.ProductDTO;
+import com.nestorBenitez.ecommerce.dto.PageDTO;
+import com.nestorBenitez.ecommerce.dto.ProductDTO;
 import com.nestorBenitez.ecommerce.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;

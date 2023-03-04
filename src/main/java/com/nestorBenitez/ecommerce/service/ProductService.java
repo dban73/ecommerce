@@ -1,7 +1,7 @@
 package com.nestorBenitez.ecommerce.service;
 
-import com.nestorBenitez.ecommerce.DTO.PageDTO;
-import com.nestorBenitez.ecommerce.DTO.ProductDTO;
+import com.nestorBenitez.ecommerce.dto.PageDTO;
+import com.nestorBenitez.ecommerce.dto.ProductDTO;
 import com.nestorBenitez.ecommerce.entity.Product;
 import java.util.List;
 import java.util.UUID;
@@ -17,6 +17,7 @@ public interface ProductService {
   Page<Product> getProductsPageable(Pageable pageable);
 
   ProductDTO getById(UUID id);
+  Product getProductById(UUID id);
 
   Product saveProduct(ProductDTO productDTO);
 
