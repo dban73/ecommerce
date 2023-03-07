@@ -17,7 +17,12 @@ public interface ProductService {
   Page<Product> getProductsPageable(Pageable pageable);
 
   ProductDTO getById(UUID id);
+
   Product getProductById(UUID id);
+
+  List<Product> getAllByCategoryId(UUID categoryId);
+
+  List<Product> getAllByCategoryName(String categoryName);
 
   Product saveProduct(ProductDTO productDTO);
 

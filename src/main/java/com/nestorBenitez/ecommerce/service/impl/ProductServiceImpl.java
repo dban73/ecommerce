@@ -64,7 +64,17 @@ public class ProductServiceImpl implements ProductService {
   @Override
   public Product getProductById(UUID id) {
     return productRepository.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Product", id));
+        .orElseThrow(() -> new EntityNotFoundException("Product", id));
+  }
+
+  @Override
+  public List<Product> getAllByCategoryId(UUID categoryId) {
+    return productRepository.findAllByCategoryId(categoryId);
+  }
+
+  @Override
+  public List<Product> getAllByCategoryName(String categoryName) {
+    return productRepository.findAllByCategoryName(categoryName);
   }
 
   @Override

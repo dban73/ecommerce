@@ -82,4 +82,17 @@ public class ProductController {
     Product product = productService.saveProduct(productDTO);
     return ResponseEntity.status(HttpStatus.CREATED).body(product);
   }
+
+  @GetMapping("/category/{categoryId}")
+  public ResponseEntity<List<Product>> getProductsByCategoryId(@PathVariable UUID categoryId) {
+    List<Product> products = productService.getAllByCategoryId(categoryId);
+    return ResponseEntity.ok(products);
+  }
+
+  @GetMapping("/category/name/{categoryName}")
+  public ResponseEntity<List<Product>> getProductsByCategoryName(
+      @PathVariable String categoryName) {
+    List<Product> products = productService.getAllByCategoryName(categoryName);
+    return ResponseEntity.ok(products);
+  }
 }
