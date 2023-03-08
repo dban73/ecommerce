@@ -5,6 +5,7 @@ import com.nestorBenitez.ecommerce.dto.OrderDTO;
 import com.nestorBenitez.ecommerce.entity.Order;
 import com.nestorBenitez.ecommerce.entity.OrderItem;
 import com.nestorBenitez.ecommerce.exceptions.EntityNotFoundException;
+import com.nestorBenitez.ecommerce.helpers.MessagesHelper;
 import com.nestorBenitez.ecommerce.repository.OrderRepository;
 import com.nestorBenitez.ecommerce.service.OrderService;
 import com.nestorBenitez.ecommerce.service.ProductService;
@@ -33,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
     }).toList();
     order.setItems(items);
     Order orderSaved = orderRepository.save(order);
-    return orderSaved.getId().toString();
+    return MessagesHelper.OrderCreated(orderSaved.getId());
   }
 
   @Override

@@ -27,4 +27,5 @@ public interface ProductService {
   Product saveProduct(ProductDTO productDTO);
 
   PageDTO<Product> getFilteredProducts(Double minPrice, Double maxprice, Pageable pageable);
+  Product updateProduct(UUID productId,ProductDTO productDTO);
 }

@@ -90,4 +90,17 @@ public class ProductServiceImpl implements ProductService {
     Page<Product> page = productRepository.findByPriceBetween(minPrice, maxPrice, pageable);
     return productMapper.convertToPageDTO(page);
   }
+
+  @Override
+  public Product updateProduct(UUID productId,ProductDTO productDTO) {
+    Product productTarget = productRepository.findById(productId)
+        .orElseThrow(() -> new EntityNotFoundException("Product", productId));
+    productTarget.setName(productDTO.getName());
+    productTarget.setDescription(productDTO.getDescription());
+    productTarget.setPrice(productDTO.getPrice());
+    productTarget.setImageUrl(productDTO.getImageUrl());
+    productTarget.setStock(productDTO.getStock());
+    productTarget.setIsActive(productDTO.isActive());
+    return productRepository.save(productTarget);
+  }
 }
